@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { View, Button, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
+  const [data, setData] = useState();
+
+  function onPress() {
+    fetch("https://randomuser.me/api/idk")
+      .then((response) => response.json())
+      .then((data) => {
+        // Use the data from the server here
+        setData(JSON.stringify(data));
+      })
+      .catch((error) => {
+        // Handle any errors that occur
+        console.error(error);
+      });
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <StatusBar style="auto" />
+      <Button title="Load data" onPress={onPress} />
+      <Text>{data}</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
