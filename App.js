@@ -13,7 +13,6 @@ export default function App() {
         setData(JSON.stringify(data));
       })
       .catch((error) => {
-        // Handle any errors that occur
         console.error(error);
       });
   }
