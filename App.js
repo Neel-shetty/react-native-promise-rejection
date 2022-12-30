@@ -12,6 +12,7 @@ export default function App() {
         // Use the data from the server here
         setData(JSON.stringify(data));
       })
+      //placeholder
       .catch((error) => {
         console.error(error);
       });
