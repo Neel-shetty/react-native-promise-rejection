@@ -17,7 +17,6 @@ export default function App() {
         console.error(error);
       });
   }
-  //need to start writing more gfg articles
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
